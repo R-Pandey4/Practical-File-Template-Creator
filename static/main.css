@@ -1,0 +1,95 @@
+body
+{   
+    
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+.info-box
+{
+    color: white;
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px; 
+    border: 2px solid black;
+    background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+    font-size: large;
+    
+}
+
+.title
+{
+    font-size: xx-large;
+    color: white;
+    width: 85%;
+    border: 2px solid black;
+    background-image: linear-gradient(to bottom right, red, yellow);
+}
+
+.para
+{           
+    color: white;
+    border: 2px solid black;
+    background-image: linear-gradient(to bottom right, red, yellow);
+}
+
+.form
+{
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid black;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    color: white;
+}
+
+
+.leg{
+    font-size: x-large;
+    color: white;
+    border: 2px solid black;
+    background-image: linear-gradient(to bottom right, red, yellow);
+  }
+
+.field
+{
+    border: 2px solid black;
+}
+
+.sub
+{
+    font-size: large;
+    color: white;
+    border: 2px solid black;
+    background: rgb(14,0,36);
+    background: linear-gradient(90deg, rgba(14,0,36,1) 0%, rgba(73,9,121,1) 16%, rgba(255,0,176,1) 100%);
+}
+
+.big-box
+{
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: xx-large;
+    color: white;
+    border: 2px solid black;
+    background-image: linear-gradient(to bottom right, red, yellow);
+}
+
+.abt
+{   width: 30%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: large;
+    border: 2px solid black;
+    background: rgb(14,0,36);
+    background: linear-gradient(90deg, rgba(14,0,36,1) 0%, rgba(73,9,121,1) 16%, rgba(255,0,176,1) 100%);
+}
+
+.abt > a
+{
+    color: white;
+}

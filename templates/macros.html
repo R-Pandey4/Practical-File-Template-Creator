@@ -1,0 +1,15 @@
+{% macro form_field_group_macro(field) %}
+
+    {{ field.label }}
+    {% if field.errors %}
+        {{ field }}
+    
+            {% for error in field.errors %}
+                <span>{{ error }}</span>
+            {% endfor %}
+    
+    {% else %}
+        {{ field }}
+    {% endif %}
+
+{% endmacro %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>About</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    </head>
+    
+    <body>
+        <div class="info-box">
+            <h1 class="title">Practical File Template Creator</h1>
+            
+                <p class="para">
+                While making a Practical file, we have to write and format the various things (like the word "Code" or "Output" etc) again and again
+                 . Well now this can be done automatically. All you need to do is copy your
+                code from your IDE or text editor and screenshots of your output and paste it in this Practical File Template. 
+                Choose the settings that you want for different parts of the Practical file and a Practical File Template will be generated.
+                (It also includes an index table)
+                </p>
+
+            <br>
+            <a class="sub" href="{{ url_for('create_file') }}"> Create a Practical File Template </a>
+        </div>
+    </body>
+
+</html>
