@@ -2,7 +2,8 @@ import os
 from docx import Document
 from docx.shared import Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-from varstore import aim
+# from varstore import aim
+from form import FileForm
 
 """
 
@@ -51,24 +52,24 @@ class PracFile:
                 para = self.document.add_paragraph() 
 
                 # Checking the Alignment
-                if(part.alignment == "Center"): 
+                if(part.alignment.data == "Center"): 
                     para.alignment = WD_ALIGN_PARAGRAPH.CENTER
                 else:
                     para.alignment= WD_ALIGN_PARAGRAPH.LEFT
                 
-                # For the aim the experiment number also needs to be mentioned
-                if(isinstance(part, aim)):
+                # For the aim the experiment number also needs to be mentioned                
+                if(part.message == "Enter the aim of the experiment\n"):
                     run = para.add_run(f"{i}. { part.message }")
                 else:
-                    run = para.add_run(f"{ part.message }") # For the remaining parts the experiment number is not necessary
-                
+                    run = para.add_run(f"{ part.message }")
+
                 # Applying various font properties
                 font = run.font
-                font.name = part.font
-                font.bold = part.bold
-                font.italic = part.italics
-                font.underline = part.underline
-                font.size = Pt(int(part.size))
+                font.name = part.font.data
+                font.bold = part.bold.data
+                font.italic = part.italics.data
+                font.underline = part.underline.data
+                font.size = Pt(int(part.size.data))
 
             self.document.add_page_break()
         self.document.save(os.path.dirname(__file__) + f"/static/uploads/{file_name}")

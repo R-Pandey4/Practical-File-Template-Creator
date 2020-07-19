@@ -2,7 +2,6 @@ import os
 from flask import Flask, render_template, redirect, url_for, send_from_directory,after_this_request
 from form import FileForm
 from file_create import PracFile
-from varstore import aim,word_code,code,word_output
 import secrets 
 import string 
 
@@ -39,14 +38,20 @@ def create_file():
 
     if form.is_submitted():
 
+        # Initializing different parts of an experiment
+        form.aim.message = "Enter the aim of the experiment\n"
+        form.word_code.message = "CODE\n"
+        form.code.message = "Select this piece of text and Paste your code from IDE or Text Editor here ,with option unformated(Libre Office) or merge formating(Microsoft Word)\n"
+        form.word_output.message = "OUTPUT\n"
+
         var_list = [] # All the variables will be passed as a list
-        l1 = aim(form)
+        l1 = form.aim
         var_list.append(l1)
-        l2 = word_code(form)
+        l2 = form.word_code
         var_list.append(l2)
-        l3 = code(form)
+        l3 = form.code
         var_list.append(l3)
-        l4 = word_output(form)
+        l4 = form.word_output
         var_list.append(l4)
 
         num_prac = int(form.exp_num.data)
@@ -72,7 +77,7 @@ def create_file():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 
 # Avoiding unauthorized access to static and upload folder 
 @app.route('/static')
