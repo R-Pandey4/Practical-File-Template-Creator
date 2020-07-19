@@ -79,9 +79,10 @@ def create_file():
 if __name__ == '__main__':
     app.run()
 
-# Avoiding unauthorized access to static and upload folder 
+# Avoiding unauthorized access to tmp and upload folder 
 @app.route('/tmp/uploads')
 @app.route('/tmp')
+@app.route('/tmp/uploads/.keep')
 @app.route('/<name>')
 def user(name):
     abort(404)
