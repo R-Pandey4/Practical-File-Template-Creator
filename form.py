@@ -11,7 +11,7 @@ with open("static/fonts.txt", "r") as font_file: # fonts.txt stores all the font
 # Class representing different attributes of at text
 class Exp(FlaskForm):
     font = SelectField("Font : ", choices=fonts)
-    size =  SelectField("Size of the font : ", choices=font_size)
+    size =  SelectField("Font Size : ", choices=font_size)
     alignment = RadioField(" Alignment: ", choices=["Left", "Center"])
     bold = BooleanField("Bold: ")
     italics = BooleanField("Italics: ")

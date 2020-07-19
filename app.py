@@ -8,8 +8,8 @@ import string
 file_name = ""
 
 app =Flask(__name__)
-app.config['SECRET_KEY'] = "885eeereg5646456wreef5656egege"
-app.config['UPLOAD_PATH'] = "static/uploads/" # Directory where Doc files are stored temporarily 
+app.config['SECRET_KEY'] = secrets.token_hex(20)
+app.config['UPLOAD_PATH'] = "tmp/uploads/" # Directory where Doc files are stored temporarily 
 
 @app.route("/")
 @app.route("/about")    # About Page
@@ -22,7 +22,7 @@ def download():
     @after_this_request # Special Decorator which incovoces the contained function after the request to which it is applied
     def remove_file(response):
         try:
-            os.remove(os.path.dirname(__file__) + f"/static/uploads/{ file_name }")
+            os.remove(os.path.dirname(__file__) + f"/tmp/uploads/{ file_name }")
             file_handle.close() # Removing the temp Doc file that is  generated
         except Exception as error:
             app.logger.error("Error removing or closing downloaded file handle", error)
@@ -39,10 +39,10 @@ def create_file():
     if form.is_submitted():
 
         # Initializing different parts of an experiment
-        form.aim.message = "Enter the aim of the experiment\n"
-        form.word_code.message = "CODE\n"
-        form.code.message = "Select this piece of text and Paste your code from IDE or Text Editor here ,with option unformated(Libre Office) or merge formating(Microsoft Word)\n"
-        form.word_output.message = "OUTPUT\n"
+        form.aim.message = "Enter the aim of the experiment\n\n"
+        form.word_code.message = "CODE\n\n"
+        form.code.message = "Select this piece of text and Paste your code from IDE or Text Editor here, with the option unformated(Libre Office) or merge formating(Microsoft Word)\n\n"
+        form.word_output.message = "OUTPUT\n\n"
 
         var_list = [] # All the variables will be passed as a list
         l1 = form.aim
@@ -80,8 +80,8 @@ if __name__ == '__main__':
     app.run()
 
 # Avoiding unauthorized access to static and upload folder 
-@app.route('/static')
-@app.route('/static/uploads')
+@app.route('/tmp/uploads')
+@app.route('/tmp')
 @app.route('/<name>')
 def user(name):
     abort(404)
