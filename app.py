@@ -77,7 +77,7 @@ def create_file():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 
 # Avoiding unauthorized access to tmp and upload folder 
 @app.route('/tmp/uploads')
