@@ -24,6 +24,7 @@ body
     width: 85%;
     border: 2px solid black;
     background-image: linear-gradient(to bottom right, red, yellow);
+    padding: 10px;
 }
 
 .para
@@ -31,6 +32,7 @@ body
     color: white;
     border: 2px solid black;
     background-image: linear-gradient(to bottom right, red, yellow);
+    padding: 10px;
 }
 
 .form

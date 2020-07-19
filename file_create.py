@@ -2,7 +2,6 @@ import os
 from docx import Document
 from docx.shared import Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-# from varstore import aim
 from form import FileForm
 
 """
