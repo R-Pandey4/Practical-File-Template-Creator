@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, url_for, send_from_directory,after_this_request
+from flask import Flask, render_template, redirect, url_for, send_from_directory,after_this_request,abort
 from form import FileForm
 from file_create import PracFile
 import secrets 
@@ -22,8 +22,8 @@ def download():
     @after_this_request # Special Decorator which incovoces the contained function after the request to which it is applied
     def remove_file(response):
         try:
+            # Removing the temp Doc file that is  generated
             os.remove(os.path.dirname(__file__) + f"/tmp/uploads/{ file_name }")
-            file_handle.close() # Removing the temp Doc file that is  generated
         except Exception as error:
             app.logger.error("Error removing or closing downloaded file handle", error)
         return response
