@@ -23,7 +23,7 @@ def download():
     def remove_file(response):
         try:
             # Removing the temp Doc file that is  generated
-            os.remove(os.path.dirname(__file__) + f"/tmp/uploads/{ file_name }")
+            os.remove(os.path.dirname(os.path.abspath(__file__)) + f"/tmp/uploads/{ file_name }")
         except Exception as error:
             app.logger.error("Error removing or closing downloaded file handle", error)
         return response
@@ -84,5 +84,5 @@ if __name__ == '__main__':
 @app.route('/tmp')
 @app.route('/tmp/uploads/.keep')
 @app.route('/<name>')
-def user(name):
+def user():
     abort(404)

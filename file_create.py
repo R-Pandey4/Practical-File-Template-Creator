@@ -71,6 +71,6 @@ class PracFile:
                 font.size = Pt(int(part.size.data))
 
             self.document.add_page_break()
-        self.document.save(os.path.dirname(__file__) + f"/tmp/uploads/{file_name}")
+        self.document.save(os.path.dirname(os.path.abspath(__file__)) + f"/tmp/uploads/{file_name}")
 
-        # Here os.path.dirname is used so that we can reach the directory where this python script is present
+        # Here os.path.dirname(os.path.abspath(__file__)) is used so that we can reach the directory where this python script is present
